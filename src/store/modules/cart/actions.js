@@ -3,16 +3,19 @@ export const actionNames = {
   GET_PRODUCTS_SUCCESS: '@CART/GET_PRODUCTS_SUCCESS',
   GET_PRODUCTS_FAILURE: '@CART/GET_PRODUCTS_FAILURE',
 
+  GET_STOCK: '@CART/GET_STOCK',
+  GET_STOCK_SUCCESS: '@CART/GET_STOCK_SUCCESS',
+  GET_STOCK_FAILURE: '@CART/GET_STOCK_FAILURE',
+
   ADD_TO_CART: '@CART/ADD_TO_CART',
   REMOVE_ONE_ITEM: '@CART/REMOVE_ONE_ITEM',
   DELETE_ALL_ITEMS: '@CART/DELETE_ALL_ITEMS',
 
 };
 
-export function getProducts(params = null) {
+export function getProducts() {
   return {
     type: actionNames.GET_PRODUCTS,
-    params,
   }
 }
 
@@ -26,6 +29,26 @@ export function getProductsSuccess(data) {
 export function getProductsFailure(error) {
   return {
     type: actionNames.GET_PRODUCTS_FAILURE,
+    error,
+  }
+}
+
+export function getStock() {
+  return {
+    type: actionNames.GET_STOCK,
+  }
+}
+
+export function getStockSuccess(data) {
+  return {
+    type: actionNames.GET_STOCK_SUCCESS,
+    data,
+  }
+}
+
+export function getStockFailure(error) {
+  return {
+    type: actionNames.GET_STOCK_FAILURE,
     error,
   }
 }

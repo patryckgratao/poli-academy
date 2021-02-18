@@ -28,9 +28,12 @@ export const ProductList = styled.ul`
     }
 
     > span {
-      font-size: 21px;
+      font-size: 18px;
       font-weight: bold;
-      margin: 5px 0 20px;
+      color: #FFCF5C;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      margin-left: 15px;
     }
 
     button {
