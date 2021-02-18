@@ -10,7 +10,7 @@ export const ProductList = styled.ul`
   li {
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: #232C3D;
     border-radius: 4px;
     padding: 20px;
 
@@ -22,8 +22,9 @@ export const ProductList = styled.ul`
     > strong {
       font-size: 16px;
       line-height: 20px;
-      color: #333;
-      margin-top: 5px;
+      color: #f7f7f7;
+      margin-top: 15px;
+      margin-left: 15px;
     }
 
     > span {
@@ -33,8 +34,8 @@ export const ProductList = styled.ul`
     }
 
     button {
-      background: #7159c1;
-      color: #fff;
+      background: #16BAC5;
+      color: #f8f8f8;
       border: 0;
       border-radius: 4px;
       overflow: hidden;
@@ -45,7 +46,7 @@ export const ProductList = styled.ul`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.03, '#7259c1')}
+        background: ${darken(0.03, '#0D9DA7')}
       }
 
       div {

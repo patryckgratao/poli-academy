@@ -1,0 +1,66 @@
+{
+  "stock": [
+    {
+      "id": 1,
+      "amount": 3
+    },
+    {
+      "id": 2,
+      "amount": 5
+    },
+    {
+      "id": 3,
+      "amount": 2
+    },
+    {
+      "id": 4,
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "amount": 5
+    },
+    {
+      "id": 6,
+      "amount": 10
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Curso de Kotlin",
+      "price": 597.9,
+      "image": "https://patryckgratao.com/wp-content/uploads/2021/02/curso1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Curso de React + React Native",
+      "price": 739.9,
+      "image": "https://patryckgratao.com/wp-content/uploads/2021/02/curso2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Crie microserviços com Node JS",
+      "price": 219.9,
+      "image": "https://patryckgratao.com/wp-content/uploads/2021/02/curso3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Bootcamp: Aplicações Híbridas com Flutter",
+      "price": 1389.9,
+      "image": "https://patryckgratao.com/wp-content/uploads/2021/02/curso4.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Curso de Vue 2.0",
+      "price": 219.9,
+      "image": "https://patryckgratao.com/wp-content/uploads/2021/02/curso5.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Curso de GitHub",
+      "price": 179.9,
+      "image": "https://patryckgratao.com/wp-content/uploads/2021/02/curso6.jpg"
+    }
+  ]
+}
