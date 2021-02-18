@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 import { MdShoppingBasket } from 'react-icons/md';
 
-import { Container, Cart, AcademyText } from './styles';
+import { Container, Cart } from './styles';
 
 import logo from '../../assets/images/logo.svg';
 
 function Header({ cartSize }) {
   return (
     <Container>
-      <Link to="/home">
+      <Link to="/">
         <img src={logo} alt="Polichat Academy" />
       </Link>
 
