@@ -7,8 +7,6 @@ import { bindActionCreators } from 'redux';
 import * as CartActions from '../../store/modules/cart/actions';
 
 import {
-  MdRemoveCircleOutline,
-  MdAddCircleOutline,
   MdDelete,
 } from 'react-icons/md';
 
@@ -18,11 +16,16 @@ import { Container, ProductTable, Total } from './styles';
 
 function Cart({
   myCart,
-  myState,
-  productsList,cart
+  removeOneItem
 }) {
-  const estado = productsList
-  console.log(cart)
+  let accumulator = 0;
+  myCart.map(item => {
+    accumulator += item.price;
+  });
+
+  function handleRemoveItem(index) {
+    removeOneItem(index)
+  }
   return (
     <Container>
       <ProductTable>
@@ -30,14 +33,14 @@ function Cart({
           <tr>
             <th />
             <th>PRODUTO</th>
-            <th>QTD</th>
-            <th>SUBTOTAL</th>
+            <th>PREÇO</th>
             <th />
           </tr>
         </thead>
 
         <tbody>
-          {myCart?.map((product) => (
+          {myCart?.map((product, index) => (
+
             <tr>
               <td>
                 <img src={product.image} alt={product.title} />
@@ -45,29 +48,14 @@ function Cart({
 
               <td>
                 <strong>{product.title}</strong>
-                <span>{product.priceFormatted}</span>
               </td>
 
               <td>
-                <div>
-                  <button type="button" >
-                    <MdRemoveCircleOutline size={20} color="#4FCAD2 " />
-                  </button>
-
-                  <input type="number" readOnly value={product.amount} />
-
-                  <button type="button" >
-                    <MdAddCircleOutline size={20} color="#4FCAD2 " />
-                  </button>
-                </div>
+                <strong>{formatPrice(product.price)}</strong>
               </td>
 
               <td>
-                <strong>{product.subtotal}</strong>
-              </td>
-
-              <td>
-                <button type="button">
+                <button type="button" onClick={() => handleRemoveItem(index)}>
                   <MdDelete size={20} color="#FF647C " />
                 </button>
               </td>
@@ -79,9 +67,10 @@ function Cart({
       <footer>
         <button type="button">Finalizar Pedido</button>
 
+
         <Total>
           <span>TOTAL</span>
-          <strong>999999</strong>
+          <strong>{formatPrice(accumulator)}</strong>
         </Total>
       </footer>
     </Container>

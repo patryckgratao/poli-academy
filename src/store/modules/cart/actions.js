@@ -61,6 +61,7 @@ export function addToCart(data) {
 }
 
 export function removeOneItem(data) {
+  console.log('oi')
   return {
     type: actionNames.REMOVE_ONE_ITEM,
     data,

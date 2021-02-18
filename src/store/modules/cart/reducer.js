@@ -51,7 +51,12 @@ export default function cart (state = {
     }
 
     case actionNames.REMOVE_ONE_ITEM: {
-      return;
+      console.log('chegou')
+      const currentState = Object.assign({}, state);
+      currentState.myCart.splice(action.data, 1);
+      return {
+        ...currentState
+      };
     }
 
     default:
