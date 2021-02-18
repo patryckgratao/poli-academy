@@ -1,5 +1,11 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+
+import { bindActionCreators } from 'redux';
+
+import * as CartActions from '../../store/modules/cart/actions';
+
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
@@ -10,17 +16,13 @@ import {formatPrice} from '../../util/format';
 
 import { Container, ProductTable, Total } from './styles';
 
-function Cart() {
-  const cart = [
-    {
-      image: "https://rocketseat-cdn.s3-sa-east-1.amazonaws.com/modulo-redux/tenis1.jpg",
-      title: 'Tenis 1',
-      priceFormatted: 'R$ 156,99',
-      amount: 5,
-      subtotal: 159,
-      id: 1,
-    }
-  ]
+function Cart({
+  myCart,
+  myState,
+  productsList,cart
+}) {
+  const estado = productsList
+  console.log(cart)
   return (
     <Container>
       <ProductTable>
@@ -35,7 +37,7 @@ function Cart() {
         </thead>
 
         <tbody>
-          {cart.map((product) => (
+          {myCart?.map((product) => (
             <tr>
               <td>
                 <img src={product.image} alt={product.title} />
@@ -86,16 +88,24 @@ function Cart() {
   );
 }
 
-// const mapStateToProps = state => ({
-//   cart: state.cart.map(product => ({
-//     ...product,
-//     subtotal: formatPrice(product.price * product.amount),
-//   })),
-//   total: formatPrice(
-//     state.cart.reduce((total, product) => {
-//       return total + product.price * product.amount;
-//     }, 0)
-//   ),
-// });
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(CartActions, dispatch);
+}
 
-export default Cart;
+const mapStateToProps = state => ({
+  cart: state.cart.myCart.map(product => ({
+    ...product,
+    subtotal: formatPrice(product.price * product.amount),
+  })),
+  productsList: state.cart.products,
+  stockList: state.cart.stock,
+  myState: state,
+  myCart: state.cart.myCart,
+});
+
+
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

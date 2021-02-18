@@ -13,8 +13,6 @@ import { connect } from 'react-redux';
 // Importar Bind Creators
 import { bindActionCreators } from 'redux';
 
-
-
 function Home({
   getProducts,
   getStock,
