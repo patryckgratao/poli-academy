@@ -19,9 +19,12 @@ function Cart({
   removeOneItem
 }) {
   let accumulator = 0;
-  myCart.map(item => {
-    accumulator += item.price;
-  });
+  if (myCart) {
+    myCart.map(item => {
+      accumulator += item.price;
+    });
+
+  }
 
   function handleRemoveItem(index) {
     removeOneItem(index)
@@ -82,14 +85,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart.myCart.map(product => ({
-    ...product,
-    subtotal: formatPrice(product.price * product.amount),
-  })),
   productsList: state.cart.products,
   stockList: state.cart.stock,
   myState: state,
-  myCart: state.cart.myCart,
+  myCart: state.cart.myCart.items,
 });
 
 

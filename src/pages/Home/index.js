@@ -19,6 +19,7 @@ function Home({
   addToCart,
   productsList,
   stockList,
+  myCart,
 }) {
 
   useEffect(() => {
@@ -27,7 +28,7 @@ function Home({
   }, [])
 
   function handleAddProduct(product) {
-    addToCart(product)
+    addToCart(product, myCart.length)
   }
 
   return (
@@ -60,6 +61,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => ({
   productsList: state.cart.products,
   stockList: state.cart.stock,
+  myCart: state.cart.myCart.items,
 })
 
 

@@ -3,7 +3,10 @@ import { actionNames } from './actions';
 
 export default function cart (state = {
   products: [],
-  myCart: [],
+  myCart: {
+    items: [],
+    quantity: 0,
+  },
   stock: [],
 }, action) {
   switch (action.type) {
@@ -46,16 +49,20 @@ export default function cart (state = {
     case actionNames.ADD_TO_CART: {
       return {
         ...state,
-        myCart: [...state.myCart, action.data]
+        myCart: {
+          items: [...state.myCart.items, action.data],
+          quantity: action.quantity + 1
+        }
       }
     }
 
     case actionNames.REMOVE_ONE_ITEM: {
-      console.log('chegou')
-      const currentState = Object.assign({}, state);
-      currentState.myCart.splice(action.data, 1);
+      // const currentState = Object.assign({}, state);
+      // state.myCart.splice(action.data, 1);
+      state.myCart.items.splice([action.data], 1)
+      state.myCart.quantity--;
       return {
-        ...currentState
+        ...state,
       };
     }
 

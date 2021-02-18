@@ -53,15 +53,15 @@ export function getStockFailure(error) {
   }
 }
 
-export function addToCart(data) {
+export function addToCart(data, quantity) {
   return {
     type: actionNames.ADD_TO_CART,
     data,
+    quantity,
   }
 }
 
 export function removeOneItem(data) {
-  console.log('oi')
   return {
     type: actionNames.REMOVE_ONE_ITEM,
     data,
